@@ -6,11 +6,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <base
-      href='{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv
+    <base href="{{ if getenv "CONTEXT" }}{{ cond (eq "production" (getenv
     "CONTEXT")) (getenv "URL") (getenv "DEPLOY_PRIME_URL") }}{{ else }}{{
-    $.Site.BaseURL }}{{ end }}'
-    />
+    $.Site.BaseURL }}{{ end }}">
     <title>{{ $.Site.Title }}</title>
 
     {{ $stylesheet := .Site.Data.webpack.main }} {{ with $stylesheet.css }}
